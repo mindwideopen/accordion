@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import './App.css';
 import {Rating} from "./Rating";
@@ -7,9 +7,11 @@ import {PageTitle} from "./PageTitle";
 import OnOff from "./OnOff";
 
 function App() {
+    let [switchOn, setSwitchOn] = useState(true);
+
     return (
         <div className="App">
-            <OnOff on={false}/>
+            <OnOff on={switchOn} onChange={setSwitchOn}/>
             <PageTitle title={'App component'}/>
 
             <UncontrolledAccordion title={'---Menu---'}/>
