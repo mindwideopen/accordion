@@ -1,0 +1,32 @@
+.select .main {
+    border: 1px solid black;
+    display: inline-block;
+    min-height: 20px;
+   width: 150px;
+    text-align: center;
+}
+
+.items {
+    display: block;
+    border: 1px solid black;
+    border-top: none;
+    position: absolute;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 150px;
+
+
+
+
+
+
+}
+
+
+
+
+.item.selected {
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+}

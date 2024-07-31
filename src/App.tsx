@@ -8,15 +8,19 @@ import OnOff from "./OnOff";
 
 function App() {
     let [switchOn, setSwitchOn] = useState(true);
+    let [collapsed, setCollapsed] = useState(true);
 
     return (
         <div className="App">
             <OnOff on={switchOn} onChange={setSwitchOn}/>
             <PageTitle title={'App component'}/>
 
-            <UncontrolledAccordion title={'---Menu---'}/>
+            <UncontrolledAccordion title={'-   -      -   Menu    -   -   -'}
+                                   collapsed={collapsed}
+                                   onChange={() => {setCollapsed(!collapsed)}}
+            />
 
-            <Rating/>
+            <Rating value={1}/>
         </div>
     );
 }

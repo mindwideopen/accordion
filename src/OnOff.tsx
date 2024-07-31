@@ -7,8 +7,6 @@ type PropsType = {
 }
 
 
-
-
 const OnOff = (props: PropsType) => {
 
 
@@ -18,7 +16,6 @@ const OnOff = (props: PropsType) => {
         border: '1px solid black',
         backgroundColor: props.on ? 'green' : 'white',
         display: 'inline-block',
-
 
 
     }
@@ -40,13 +37,14 @@ const OnOff = (props: PropsType) => {
 
     }
     return (
-        <div >
-            <div onClick={() => {props.onChange(true)}} style={onStyle}>On</div>
-            <div onClick={() => {props.onChange(false)}} style={offStyle}>Off</div>
-            <div style = {indicatorStyle}></div>
+        <div>
+            <div onClick={() => {props.onChange(true)}} style={onStyle}>On </div>
+            <div style={indicatorStyle}></div>
+            <div onClick={() => {  props.onChange(false) }} style={offStyle}>Off  </div>
+
         </div>
 
-           );
+    );
 };
 
 export default OnOff;

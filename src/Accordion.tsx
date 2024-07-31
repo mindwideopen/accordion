@@ -1,26 +1,32 @@
-import React, {useState} from "react";
+import React from "react";
 
 
 type AccordionPropsType = {
     title: string,
-    // collapsed: boolean
+    collapsed: boolean,
+    onChange: () => void,
+
 }
 
 type AccordionTitlePropsType = {
     title: string,
-    onClick: () => void,
+    onChange: () => void,
+
+
 
 }
 
 
 export const UncontrolledAccordion = (props: AccordionPropsType) => {
-    const [collapsed, setCollapsed] = useState(false);
+
 
     return (
         <>
-            <AccordionTitle title={props.title} onClick={() => setCollapsed(!collapsed)}/>
+            <AccordionTitle title={props.title} onChange={() => {
+                props.onChange()
+            }}/>
 
-            {collapsed && <AccordionBody/>}
+            {!props.collapsed && <AccordionBody/>}
         </>
 
 
@@ -28,11 +34,13 @@ export const UncontrolledAccordion = (props: AccordionPropsType) => {
 }
 
 
+
+
 const AccordionTitle = (props: AccordionTitlePropsType) => {
     return (
-        <h3 onClick={() => {
-            props.onClick()
-        }}>---Menu---</h3>
+        <h3 onClick={(e: React.MouseEvent<HTMLHeadingElement>) => {
+            props.onChange()
+        }}>{props.title}</h3>
     )
 }
 

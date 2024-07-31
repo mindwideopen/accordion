@@ -2,7 +2,7 @@ import React from "react";
 import {Star} from "./Star";
 
 type RatingValuePropsType = {
-    // value: 1 | 2 | 3 | 4 | 5 | 0;
+    value: 1 | 2 | 3 | 4 | 5 | 0;
 }
 
 export const Rating = (props: RatingValuePropsType) => {
