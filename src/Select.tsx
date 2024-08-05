@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, KeyboardEvent, useEffect} from 'react'
 
 import styles from './Select.module.css'
 
@@ -13,12 +13,20 @@ type ItemsType = {
 
 type SelectPropsType = {
     value?: any,
-    onClick: (value: any) => void,
+    onClick: (value: string) => void,
     items: Array<ItemsType>,
+    setValue: (value: string) => void,
 
 }
 
+
 const Select = (props: SelectPropsType) => {
+
+    useEffect(() => {
+        setHoveredElementValue(props.value)
+    }, [props.value]);
+
+
     // active это развернут или свернут список опций в селекте
     const [active, setActive] = useState(false)
 
@@ -37,9 +45,23 @@ const Select = (props: SelectPropsType) => {
         props.onClick(value)
         toggleItems()
     }
+    const onKeyUp = (e: KeyboardEvent<HTMLDivElement>) => {
+       for (let i=0; i<props.items.length; i++) {
+           if (props.items[i].value===hoveredElementValue) {
+               if(props.items[i+1]) {
+                   props.onClick(props.items[i+1].value)
 
+                   break
+               }
+               break
+           }
+       }
+    }
+const setValue = (value: string) => {
+    props.setValue(value)
+}
     return (
-        <div className={styles.select}>
+        <div className={styles.select} tabIndex={0} onKeyUp={onKeyUp}>
             <span className={styles.main}
                   onClick={toggleItems}>{selectedItem && selectedItem.title}
             </span>
@@ -53,7 +75,10 @@ const Select = (props: SelectPropsType) => {
                              key={item.value}
                              onClick={() => onItemClick(item.value)}
                              onMouseEnter={() => {
-                                 setHoveredElementValue(item.value)}}>
+                                 setHoveredElementValue(item.value)
+                                 setValue(item.value)
+
+                            }}>
                             {item.title}
                         </div>)}
                 </div>}

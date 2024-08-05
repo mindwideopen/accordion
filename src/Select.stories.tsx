@@ -14,6 +14,7 @@ const [value, setValue] = useState('2');
     return <>
         <Select onClick={setValue}
         value={value}
+                setValue={setValue}
         items={[
             {value:"1", title: 'Moscow'},
             {value:"2", title: 'Minsk'},
@@ -32,6 +33,7 @@ export const WithoutValue = () => {
     return <>
         <Select onClick={setValue}
                 value={value}
+                setValue={setValue}
 
                 items={[
                     {value:"1", title: 'Moscow'},
