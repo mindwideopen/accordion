@@ -2,15 +2,38 @@ import React from 'react';
 import './App.css';
 
 function App() {
-  return (<div>
-          <Rating/>
-          <Accordion/>
-  </div>
+    return (<div>
+            <AppTitle/>
+            <Rating/>
+            <Accordion/>
+        </div>
 
-  );
+    );
 }
 
-const Rating = () =>  {
+const AccordionTitle = () => {
+    console.log('AccordionTitle rendering');
+    return <h3>
+        Меню
+    </h3>
+}
+
+const AccordionBody = () => {
+    console.log('AccordionBody rendering');
+    return <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+}
+
+const AppTitle = () => {
+    return <>
+        This is react App
+    </>
+}
+
+const Rating = () => {
     return (
         <div>
             <Star/>
@@ -25,12 +48,9 @@ const Rating = () =>  {
 const Accordion = () => {
     return (
         <div>
-            <h3>Меню</h3>
-            <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-            </ul>
+            <AccordionTitle/>
+            <AccordionBody/>
+
         </div>
     )
 }
