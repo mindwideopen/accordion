@@ -1,17 +1,19 @@
 import React from "react";
 
 type RatingPropsType = {
-    value: 0|1|2|3|4|5
+    value: 1|2|3|4|5
 }
 
-export const Rating = (props: RatingPropsType) => {
+export const Rating = () => {
+
+    const [rating, setRating] = React.useState(0);
     return (
         <div>
-            <Star selected={props.value>0} />
-            <Star selected={props.value>1} />
-            <Star selected={props.value>2} />
-            <Star selected={props.value>3} />
-            <Star selected={props.value>4} />
+            <Star selected={rating > 0} setRating={() => setRating(1)} ></Star>
+            <Star selected={rating > 1} setRating={() => setRating(2)} ></Star>
+            <Star selected={rating > 2} setRating={() => setRating(3)}  ></Star>
+            <Star selected={rating > 3} setRating={() => setRating(4)} ></Star>
+            <Star selected={rating > 4} setRating={() => setRating(5)} ></Star>
 
 
 
@@ -20,9 +22,12 @@ export const Rating = (props: RatingPropsType) => {
 }
 
 type StarPropsType = {
-    selected?: boolean
+
+    selected: boolean,
+    setRating: () => void
+
 }
 
 const Star = (props: StarPropsType) => {
-  return props.selected? <span><b>star </b></span>:<span>star </span>
+  return props.selected? <span onClick={() => props.setRating()}><b>star </b></span>:<span onClick={() => props.setRating()}>star </span>
 }

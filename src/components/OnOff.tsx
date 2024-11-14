@@ -7,6 +7,7 @@ type OnOffPropsType = {
 const OnOff = (props: OnOffPropsType) => {
     const [on, setOn] = React.useState(true);
 
+    console.log(on)
     return (
         <div className={'onOff'}>
 

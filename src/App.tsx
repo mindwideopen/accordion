@@ -7,9 +7,9 @@ import OnOff from "./components/OnOff";
 function App() {
     return (<div>
             <AppTitle/>
-            <Rating value={2}/>
+            <Rating />
             <Accordion/>
-            <Rating value={2}/>
+            <Rating />
             <OnOff on={true}/>
         </div>
 
