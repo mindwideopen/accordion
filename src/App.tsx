@@ -10,12 +10,16 @@ function App() {
 
         setRating(value)
     }
-    console.log(rating)
+
 
     const[accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false);
-
     const collapseAccordion = () => {
         setAccordionCollapsed(!accordionCollapsed);
+    }
+
+    const [on, setOn] = useState<boolean>(true);
+    const switchButton =  () => {
+        setOn(!on)
     }
 
     return (<div>
@@ -23,7 +27,7 @@ function App() {
             <Rating rating={rating} selectRating={selectRating}/>
             <Accordion accordionCollapsed={accordionCollapsed} collapseAccordion={collapseAccordion}/>
             <Rating rating={rating} selectRating={selectRating}/>
-            <OnOff />
+            <OnOff status={on} switchButton={switchButton}/>
         </div>
 
     );

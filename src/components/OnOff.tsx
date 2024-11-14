@@ -1,21 +1,20 @@
 import React from 'react';
 
-// type OnOffPropsType = {
-//     on?: boolean
-// }
+type OnOffPropsType = {
+    status: boolean,
+    switchButton: (status: boolean) => void
+}
 
-const OnOff = () => {
-    const [on, setOn] = React.useState(true);
+const OnOff = (props: OnOffPropsType) => {
 
-    console.log(on)
     return (
         <div className={'onOff'}>
 
-            <button className={`selectButton ${on ? 'on' : ''}`} onClick={() => setOn(true)}>ON</button>
+            <button className={`selectButton ${props.status ? 'on' : ''}`} onClick={() => props.switchButton(true)}>ON</button>
 
-            <div className={`indicator ${on ? 'on' : 'off'}`}></div>
+            <div className={`indicator ${props.status ? 'on' : 'off'}`}></div>
 
-            <button className={`selectButton ${!on ? 'off' : ''}`} onClick={() => setOn(false)}>OFF</button>
+            <button className={`selectButton ${!props.status ? 'off' : ''}`} onClick={() => props.switchButton(false)}>OFF</button>
 
 
         </div>
