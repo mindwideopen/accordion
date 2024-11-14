@@ -1,8 +1,6 @@
 import React from "react";
 
-type RatingPropsType = {
-    value: 1|2|3|4|5
-}
+
 
 export const Rating = () => {
 
@@ -14,9 +12,6 @@ export const Rating = () => {
             <Star selected={rating > 2} setRating={() => setRating(3)}  ></Star>
             <Star selected={rating > 3} setRating={() => setRating(4)} ></Star>
             <Star selected={rating > 4} setRating={() => setRating(5)} ></Star>
-
-
-
         </div>
     )
 }
@@ -29,5 +24,5 @@ type StarPropsType = {
 }
 
 const Star = (props: StarPropsType) => {
-  return props.selected? <span onClick={() => props.setRating()}><b>star </b></span>:<span onClick={() => props.setRating()}>star </span>
+  return  <span onClick={() => props.setRating()}>{props.selected?<b>star</b>:'star' }</span>
 }
