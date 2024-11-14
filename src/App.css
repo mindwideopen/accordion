@@ -36,3 +36,35 @@
     transform: rotate(360deg);
   }
 }
+
+.onOff {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+
+
+}
+
+.selectButton {
+  text-align: center;
+  width: 200px;
+  height:  100px;
+  border: 1px solid black;
+}
+
+.on {
+
+  background-color: green;
+}
+
+.off{
+
+  background-color: red;
+}
+
+.indicator {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
