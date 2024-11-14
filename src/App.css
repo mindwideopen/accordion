@@ -71,4 +71,9 @@
 
 span {
   cursor: pointer;
+
+}
+
+span:hover {
+  border: 2px solid red;
 }

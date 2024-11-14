@@ -23,7 +23,7 @@ function App() {
             <Rating rating={rating} selectRating={selectRating}/>
             <Accordion accordionCollapsed={accordionCollapsed} collapseAccordion={collapseAccordion}/>
             <Rating rating={rating} selectRating={selectRating}/>
-            <OnOff on={true}/>
+            <OnOff />
         </div>
 
     );
