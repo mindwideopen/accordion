@@ -11,11 +11,11 @@ const OnOff = (props: OnOffPropsType) => {
     return (
         <div className={'onOff'}>
 
-            <div className={'selectButton' + ' ' + (on ? 'on':'')} onClick={() => setOn(true)}>ON</div>
+            <button className={'selectButton' + ' ' + (on ? 'on':'')} onClick={() => setOn(true)}>ON</button>
 
             <div className={'indicator' + ' ' + (on ? 'on' : 'off')}></div>
 
-            <div className={'selectButton' + ' ' + (!on ? 'off' : '')} onClick={() => setOn(false)}>OFF</div>
+            <button className={'selectButton' + ' ' + (!on ? 'off' : '')} onClick={() => setOn(false)}>OFF</button>
 
 
         </div>

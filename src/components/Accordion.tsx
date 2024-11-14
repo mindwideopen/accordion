@@ -1,38 +1,43 @@
 import React from "react";
 
-export const Accordion = () => {
-    const [collapsed, setCollapsed] = React.useState(false);
+type AccordionPropsType = {
+    accordionCollapsed: boolean;
+    collapseAccordion: () => void;
+}
+
+export const Accordion = (props: AccordionPropsType) => {
+
     return (
         <div>
-            <AccordionTitle collapsed={() => setCollapsed(!collapsed)}/>
-            <AccordionBody collapsed={collapsed}/>
+            <AccordionTitle collapseAccordion={props.collapseAccordion}/>
+            <AccordionBody accordionCollapsed={props.accordionCollapsed}/>
 
         </div>
     )
 }
 
-type AccordioTitlePropsType = {
-    collapsed: () => void
+type AccordionTitlePropsType = {
+    collapseAccordion: () => void
 }
 
-const AccordionTitle = (props: AccordioTitlePropsType) => {
+const AccordionTitle = (props: AccordionTitlePropsType) => {
 
     console.log('AccordionTitle rendering');
 
-    return <h3 onClick={props.collapsed}>
+    return <h3 onClick={() => props.collapseAccordion()}>
         Меню
     </h3>
 }
 
 type AccordioBodyPropsType = {
-    collapsed: boolean
+    accordionCollapsed: boolean
 }
 
 const AccordionBody = (props: AccordioBodyPropsType) => {
     console.log('AccordionBody rendering');
 
     return (
-        props.collapsed ? null :
+        props.accordionCollapsed ? null :
             <ul>
                 <li>1</li>
                 <li>2</li>
