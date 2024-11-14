@@ -6,9 +6,9 @@ import {Rating} from "./components/Rating";
 function App() {
     return (<div>
             <AppTitle/>
-            <Rating/>
+            <Rating value={2}/>
             <Accordion/>
-            <Rating/>
+            <Rating value={2}/>
         </div>
 
     );
