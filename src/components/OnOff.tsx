@@ -5,7 +5,7 @@ type OnOffPropsType = {
     switchButton: (status: boolean) => void
 }
 
-const OnOff = (props: OnOffPropsType) => {
+export const OnOff = (props: OnOffPropsType) => {
 
     return (
         <div className={'onOff'}>
@@ -21,5 +21,5 @@ const OnOff = (props: OnOffPropsType) => {
     );
 };
 
-export default OnOff;
+
 

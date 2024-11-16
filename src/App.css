@@ -1,5 +1,14 @@
+
 .App {
   text-align: center;
+
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
 }
 
 .App-logo {
@@ -47,10 +56,12 @@
 }
 
 .selectButton {
-  text-align: center;
-  width: 200px;
-  height:  100px;
+  margin: 0;
+  padding: 0;
+  width: 30px;
+  height:  20px;
   border: 1px solid black;
+
 }
 
 .on {
@@ -64,9 +75,10 @@
 }
 
 .indicator {
-  width: 100px;
-  height: 100px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
+  outline: 3px solid black;
 }
 
 span {

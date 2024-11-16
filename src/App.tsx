@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import {Accordion} from "./components/Accordion";
 import {Rating, RatingValueType} from "./components/Rating";
-import OnOff from "./components/OnOff";
+import {OnOff} from "./components/OnOff";
 
 function App() {
     const[rating, setRating] = useState<RatingValueType>(0);
@@ -19,10 +19,10 @@ function App() {
 
     const [on, setOn] = useState<boolean>(true);
     const switchButton =  () => {
-        setOn(!on)
+         setOn(!on)
     }
 
-    return (<div>
+    return (<div className={'wrapper'}>
             <AppTitle/>
             <Rating rating={rating} selectRating={selectRating}/>
             <Accordion accordionCollapsed={accordionCollapsed} collapseAccordion={collapseAccordion}/>
