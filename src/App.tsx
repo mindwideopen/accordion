@@ -5,11 +5,7 @@ import {Rating, RatingValueType} from "./components/Rating";
 import {OnOff} from "./components/OnOff";
 
 function App() {
-    const[rating, setRating] = useState<RatingValueType>(0);
-    const selectRating = (value: RatingValueType) => {
 
-        setRating(value)
-    }
 
 
     const[accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false);
@@ -18,16 +14,14 @@ function App() {
     }
 
     const [on, setOn] = useState<boolean>(true);
-    const switchButton =  () => {
-         setOn(!on)
-    }
+
 
     return (<div className={'wrapper'}>
             <AppTitle/>
-            <Rating rating={rating} selectRating={selectRating}/>
+            <Rating />
             <Accordion accordionCollapsed={accordionCollapsed} collapseAccordion={collapseAccordion}/>
-            <Rating rating={rating} selectRating={selectRating}/>
-            <OnOff status={on} switchButton={switchButton}/>
+            <Rating />
+            <OnOff status={on} switchButton={setOn}/>
         </div>
 
     );
