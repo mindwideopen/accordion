@@ -32,7 +32,7 @@ const AccordionTitle = (props: AccordionTitlePropsType) => {
         width: 'fit-content',
         cursor: 'pointer'
     }}
-               onClick={() => props.collapseAccordion}>
+               onClick={() => props.collapseAccordion()}>
         {props.title}
     </h3>
 }
