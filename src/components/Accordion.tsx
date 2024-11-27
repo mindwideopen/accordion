@@ -3,13 +3,15 @@ import React from "react";
 type AccordionPropsType = {
     accordionCollapsed: boolean;
     collapseAccordion: () => void;
+    title: string
 }
 
 export const Accordion = (props: AccordionPropsType) => {
 
     return (
         <div>
-            <AccordionTitle collapseAccordion={props.collapseAccordion}/>
+            <AccordionTitle collapseAccordion={props.collapseAccordion}
+                            title={props.title}/>
             <AccordionBody accordionCollapsed={props.accordionCollapsed}/>
 
         </div>
@@ -17,15 +19,21 @@ export const Accordion = (props: AccordionPropsType) => {
 }
 
 type AccordionTitlePropsType = {
-    collapseAccordion: () => void
+    collapseAccordion: () => void,
+    title: string
 }
 
 const AccordionTitle = (props: AccordionTitlePropsType) => {
 
-    console.log('AccordionTitle rendering');
 
-    return <h3 onClick={() => props.collapseAccordion()}>
-        Меню
+    debugger
+    return <h3 style={{
+        border: '2px solid red',
+        width: 'fit-content',
+        cursor: 'pointer'
+    }}
+               onClick={() => props.collapseAccordion}>
+        {props.title}
     </h3>
 }
 

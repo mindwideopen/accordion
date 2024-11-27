@@ -19,7 +19,9 @@ function App() {
     return (<div className={'wrapper'}>
             <AppTitle/>
             <Rating />
-            <Accordion accordionCollapsed={accordionCollapsed} collapseAccordion={collapseAccordion}/>
+            <Accordion  title={'Accordion'}
+                        accordionCollapsed={accordionCollapsed}
+                        collapseAccordion={collapseAccordion}/>
             <Rating />
             <OnOff status={on} switchButton={setOn}/>
         </div>
