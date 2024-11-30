@@ -26,7 +26,7 @@ type AccordionTitlePropsType = {
 const AccordionTitle = (props: AccordionTitlePropsType) => {
 
 
-    debugger
+
     return <h3 style={{
         border: '2px solid red',
         width: 'fit-content',

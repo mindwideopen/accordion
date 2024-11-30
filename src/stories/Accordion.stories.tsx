@@ -42,8 +42,8 @@ export const AccordionDemo = () => {
 export const Primary: Story = {
     args: {
         title: 'Accordion',
-
         accordionCollapsed: true,
+        collapseAccordion: () => {}
     },
 };
 

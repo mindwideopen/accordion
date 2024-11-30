@@ -1,26 +1,24 @@
 import React, {useState} from "react";
 
 
-export type RatingValueType = 0|1|2|3|4|5;
+export type RatingType = {
+    value: number,
+    setRating: (value: number) => void
+
+}
+
+
+export const Rating = (props: RatingType) => {
 
 
 
-
-
-export const Rating = () => {
-    const[rating, setRating] = useState<RatingValueType>(0);
-
-    const selectRating = (value: RatingValueType) => {
-
-        setRating(value)
-    }
     return (
         <div>
-            <Star value={1} selected={rating > 0} selectRating={selectRating}/>
-            <Star value={2} selected={rating > 1} selectRating={selectRating}/>
-            <Star value={3} selected={rating > 2} selectRating={selectRating}/>
-            <Star value={4} selected={rating > 3} selectRating={ selectRating}/>
-            <Star value={5} selected={rating > 4} selectRating={selectRating}/>
+            <Star value={1} selected={props.value > 0} setRating={props.setRating}/>
+            <Star value={2} selected={props.value > 1} setRating={props.setRating}/>
+            <Star value={3} selected={props.value > 2} setRating={props.setRating}/>
+            <Star value={4} selected={props.value > 3} setRating={props.setRating}/>
+            <Star value={5} selected={props.value > 4} setRating={props.setRating}/>
 
         </div>
     )
@@ -28,14 +26,24 @@ export const Rating = () => {
 
 
 type StarPropsType = {
-    selectRating: (value: RatingValueType) => void;
+    setRating: (value: number) => void;
     selected: boolean,
-    value: RatingValueType
+    value: number
 
 }
 
 
 const Star = (props: StarPropsType) => {
-  return  <span onClick = {() => {props.selectRating(props.value)}}>
-      {props.selected?<b>star</b>:'star' }</span>
+
+    return <span style={ {
+        border: '2px solid red',
+        width: 'fit-content',
+        cursor: 'pointer',
+        marginLeft: '5px',
+    }} onClick={() => {
+        debugger
+        props.setRating(props.value)
+
+    }}>
+      {props.selected ? <b>star</b> : 'star'}</span>
 }
