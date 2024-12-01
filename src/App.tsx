@@ -4,6 +4,7 @@ import {Accordion} from "./components/Accordion";
 import {Rating} from "./components/Rating";
 import {OnOff} from "./components/OnOff";
 
+
 function App() {
 
 
@@ -45,6 +46,25 @@ const AppTitle = () => {
     </>
 }
 
+// const ButtonWrapper = () => {
+//     return(
+//         <div>
+//             <Button1/>
+//         </div>
+//     )
+// }
+//
+//
+// const Button1 = () =>  {
+//     const b1Foo = () => {
+//         console.log('b1')
+//     }
+// }
+// const Button2 = () =>  {
+//     const b2Foo = () => {
+//         console.log('b2')
+//     }
+// }
 
 
 export default App;
