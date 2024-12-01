@@ -48,34 +48,3 @@ type UsersProsType = {
 
 
 
-
-// import React from 'react';
-//
-// export default {
-//     title: 'ReactMemoDemo',
-// };
-//
-// type NewMessagesCounterProps = {
-//     count: number;
-// };
-//
-// export const NewMessagesCounter = (props: NewMessagesCounterProps) => {
-//     return <div>{props.count}</div>;
-// };
-//
-// export const Users = (props: { users: string[] }) => {
-//     return (
-//         <div>
-//             {props.users.map((u, i) => <div key={u}>{u}</div>)}
-//         </div>
-//     );
-// };
-//
-// export const Example1 = () => {
-//     return (
-//         <>
-//             <NewMessagesCounter count={10} />
-//             <Users users={['Dima', 'Kolya']} />
-//         </>
-//     );
-// };
