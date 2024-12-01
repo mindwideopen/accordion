@@ -4,7 +4,7 @@ export default {
     title: 'useMemo'
 }
 
-export const useMemoExaple1 = () => {
+export const DifficultCounting= () => {
     const [a, setA] = React.useState(3)
     const [b, setB] = React.useState(3)
     let resultA = 1

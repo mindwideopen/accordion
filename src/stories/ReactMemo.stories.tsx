@@ -1,17 +1,36 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 export default {
     title: 'ReactMemoDemo'
 }
 
 
+
+const UsersSecret = (props: UsersProsType) => {
+    console.log('USERS')
+    return <div>
+        {props.users.map((u, i) => <div key={i}>{u}</div>)}
+    </div>
+}
+
+const Users = React.memo(UsersSecret)
+
+
 export const Example1 = () => {
-    const names = ['Dima', 'Kolya']
+    console.log('Example1')
+    const[counter, setCounter] = useState(0);
+    const[users, setUsers] = useState(['Dima', 'Kolya']);
+    const addUser = () => {
+        setUsers([...users, 'Sveta' + ' ' + new Date().getTime()])
+    }
+
 
     return <>
+        <button onClick={() => setCounter(counter+1)}>+</button>
+        <button onClick={addUser}>addUser</button>
 
-        <NewMessagesCounter count={10}/>
-        <Users users={names}/>
+        <NewMessagesCounter count={counter}/>
+        <Users users={users}/>
 
     </>
 }
@@ -26,12 +45,8 @@ type UsersProsType = {
 }
 
 
- const Users = (props: UsersProsType) => {
 
-    return <div>
-        {props.users.map((u, i) => <div key={i}>{u}</div>)}
-    </div>
-}
+
 
 
 // import React from 'react';
