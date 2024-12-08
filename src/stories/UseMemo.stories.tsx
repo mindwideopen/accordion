@@ -88,19 +88,39 @@ type BooksProsType = {
     addBook: () => void,
 }
 
+const BooksSecret = (props: BooksProsType) => {
+    console.log('Books render')
 
+    return <div>
+        <button onClick={() => {
+            console.log('click')
+            props.addBook()
+        }}>addBook</button>
+        {props.books.map((book, i) => <div key={i}>{book}</div>)}
+
+    </div>
+}
+
+const Books = React.memo(BooksSecret)
+
+const NewMessagesCounter = (props: any) => {
+    console.log('Counter render')
+    return <div>{props.count}</div>
+}
+
+const MessagesCounter = React.memo(NewMessagesCounter)
 
 export const LikeUseCallback = () => {
 
 
-    console.log('LikeUseCallback render')
+
 
 
     const[counter, setCounter] = useState(0);
     const[books, setBooks] = useState(['React', 'HTML', 'CSS', 'JavaScript', 'NodeJS']);
+    console.log(books)
 
-
-
+debugger
 
 
     const addBook = () => {
@@ -109,7 +129,11 @@ export const LikeUseCallback = () => {
 
 
 
-    const memoizedAddBook = useCallback(() =>   addBook, [books])
+    const memoizedAddBook = useCallback(addBook, [books])
+
+    // const memoizedAddBook = useMemo(() => {
+    //     return addBook
+    // }, [books])
 
 
 
@@ -126,23 +150,7 @@ export const LikeUseCallback = () => {
 
     </>
 }
-const BooksSecret = (props: BooksProsType) => {
-    console.log('Books render')
-    return <div>
-        <button onClick={props.addBook}>addBook</button>
-        {props.books.map((book, i) => <div key={i}>{book}</div>)}
 
-    </div>
-}
-
-const Books = React.memo(BooksSecret)
-
-const NewMessagesCounter = (props: any) => {
-    console.log('Counter render')
-    return <div>{props.count}</div>
-}
-
-const MessagesCounter = React.memo(NewMessagesCounter)
 
 
 
